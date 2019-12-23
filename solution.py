@@ -11,10 +11,10 @@ def findCompounds(word, s):
         prefix = word[:i] # component 1
         suffix = word[i:] # components 2, ... n
         # perform recursion on the SUFFIX.
-        if prefix in s and findComposites(suffix, s):
+        if prefix in s and findCompounds(suffix, s):
             return True
-    s.add(word)
-    print("set: ", s)
+    if word not in s: # potentially problematic as suffix gets added to set 
+        s.add(word)
     return False
 
 def processList(words):
@@ -39,7 +39,7 @@ if __name__ == '__main__':
     # clean duplicates from input before processing algorithm
     for line in sys.stdin:
         w = line.strip() # strips newline and whitespace
-        if w not in words:
+        if len(w) > 0 and w not in words: # no empty strings
             words.add(w)
     compounds = processList(words)
     # print results to stdout
