@@ -41,7 +41,7 @@ def process_list(inputs):
 
 if __name__ == '__main__':
     words = set()
-    # clean stdin before processing algorithm
+    # clean stdin before processing algorithm.
     for line in sys.stdin:
         w = line.strip() # strips newline and whitespace
         if len(w) > 0 and w not in words: # no empty strings

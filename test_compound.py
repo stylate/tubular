@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+# Alan Nguyen - Tubular Labs Coding Challenge
 import unittest
 from solution import process_list
 
@@ -16,6 +18,10 @@ class TestCompound(unittest.TestCase):
     def test_advanced(self):
         words = set(['cat', 'cats', 's', 'and', 'sand', 'catsand'])
         expected = ['cats', 'catsand', 'sand']
+        self.assertEqual(process_list(words), expected)
+
+        words = set(['man', 'handle', 'handleman', 'manhandle'])
+        expected = ['handleman', 'manhandle']
         self.assertEqual(process_list(words), expected)
 
     def test_fail(self):
